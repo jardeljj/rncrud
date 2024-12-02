@@ -1,7 +1,7 @@
 import React from "react";
-import { Alert, FlatList, Text, View } from "react-native";
+import { Alert, FlatList, View } from "react-native";
 import users from "../data/users";
-import { Avatar, Button, ListItem, } from "react-native-elements";
+import { Avatar, Button, ListItem} from "react-native-elements";
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default props => {
@@ -11,7 +11,7 @@ export default props => {
             {
                 text: 'Sim',
                 onPress() {
-                    console.warn('delete' + user.id)
+                    alert(`Usuário ${user.name} excluído!`)
                 }
             },
             {
@@ -39,7 +39,10 @@ export default props => {
 
     function getUserItem({ item: user }) {
         return (
-            <ListItem bottomDivider key={user.id} onPress={() => props.navigation.navigate('UserForm', user)}>
+            <ListItem 
+            bottomDivider 
+            key={user.id} 
+            onPress={() => props.navigation.navigate('UserForm', user)}>
 
                 <Avatar source={{ uri: user.avatarUrl }} />
                 <ListItem.Content>
